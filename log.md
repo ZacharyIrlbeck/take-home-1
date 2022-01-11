@@ -16,5 +16,13 @@ the translate 3d one. It also looks like it has the benefit of only repainting t
 
 All right, with a few articles explaining a little about animation w/ CSS, I'm going to stick one of the circles on the page and play around w/ animating it w/ CSS and JS. 
 
+.... 
 
 
+Okay, so then to create the ability to drag the cirlce around, I'm going to need to have, similar to the code on the first page listed in the sources, a mouseup, mousemove, and a mousedown. Different from the page, the element might be any of the 4 circles, so I'll need to set the element being dragged and I'll need a variable for that. 
+
+As of right now, the unknowns are:
+
+- how can I tell if a click corresponds to an element?
+- how can I get an element to follow the mouse?
+- how can I check if the element is reasonably close to where it's supposed to be, or the "correct answer"?

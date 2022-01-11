@@ -32,25 +32,42 @@
         
         var currentX
         var currentY 
-        var activeElement
+        var activeElement = null
         
         document.addEventListener('mousedown', onMouseDown)
         document.addEventListener('mouseup', onMouseUp)
         document.addEventListener('mousemove', onMouseMove)
 
-        function onMouseDown(){
-            // what happens when I click down? Well, I need to identify if there is an element (if the click was in a moveable element),
-            // and set which element that was.
+        function onMouseDown(e){
+            if(e.target === black){
+                activeElement = black 
+            }else if(e.target === blue){
+                activeElement = blue
+            }else if(e.target === green){
+                activeElement = green
+            }else if(e.target === red){
+                activeElement = red
+            }else{
+
+            }
+
+
         }
 
         function onMouseUp(){
+            activeElement = null
             // what happens on mouseup? well, I'm going to first check to see if there is an active element, if not, return. 
             // if there is an active element, check if that element belongs where it has been dragged to within a reasonable margin
             // if not, return it to it's intial position.
         }
 
-        function onMouseMove(){
-            // again, returning if no active element, if there is, make sure that the active element if following the mouse
+        function onMouseMove(e){
+            if(activeElement){
+                currentX = e.clientX
+                currentY = e.clientY
+
+                animateCircle(currentX, currentY, activeElement)
+            }
         }
 
         function animateCircle(mouseX, mouseY, elm){
