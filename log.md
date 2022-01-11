@@ -26,3 +26,9 @@ As of right now, the unknowns are:
 - how can I tell if a click corresponds to an element?
 - how can I get an element to follow the mouse?
 - how can I check if the element is reasonably close to where it's supposed to be, or the "correct answer"?
+
+
+I added the ability to move the dots, but the follow the mouse at a strange distance. Also, when I try and move them around over the background of hte logo, it works as if clicking the image. This explains the initalX - clientX thing, as well as the e.preventDefault in the move function. 
+
+
+Okay, so far running into the most challenging part, which is understanding the need for the x and y offsets and intial position to make the image track accurately with the mouse.

@@ -32,6 +32,10 @@
         
         var currentX
         var currentY 
+        var initialX 
+        var initialY
+        var xOffset = 0
+        var yOffset = 0
         var activeElement = null
         
         document.addEventListener('mousedown', onMouseDown)
@@ -48,10 +52,11 @@
             }else if(e.target === red){
                 activeElement = red
             }else{
-
+                
             }
 
-
+            initialX = e.clientX - xOffset
+            initialY = e.clientY - yOffset
         }
 
         function onMouseUp(){
@@ -62,11 +67,21 @@
         }
 
         function onMouseMove(e){
-            if(activeElement){
-                currentX = e.clientX
-                currentY = e.clientY
+            e.preventDefault()
 
-                animateCircle(currentX, currentY, activeElement)
+            if(activeElement){
+                // console.log('the e.clientX', e.clientX)
+                // console.log('the e.clientY', e.clientY)
+                // console.log('the initialX', initialX)
+                // console.log('the initialY', initialY)
+                // console.log('the xOffset', xOffset)
+                // console.log('the yOffset', yOffset)
+                // currentX = e.clientX - initialX
+                // currentY = e.clientY - initialY
+
+                // animateCircle(currentX, currentY, activeElement)
+
+                animateCircle(e.clientX, e.clientY, activeElement)
             }
         }
 
