@@ -8,8 +8,60 @@
         user-scalable=no" />
   <title>Inspiring Apps Challenge</title>
   <style>
-    .black-circle {
-        transform: translate3d(20px, 20px, 0px);
+    .page-container{
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+    .logo-container{
+        position: relative;
+    }
+    .circle {
+        position: absolute;
+        border-radius: 50%;
+        height: 8em;
+        width: 8em;
+    }
+    .black-spot {
+        background-color: black;
+        left: 26px;
+        top: 169px;
+    }
+
+    .blue-spot {
+        background-color: blue;
+        left: 398px;
+        top: 267px;
+    }
+
+    .green-spot {
+        background-color: green;
+        left: 434px;
+        top: 50px;
+    }
+
+    .red-spot {
+        background-color: red;
+        left: 254px;
+        top: 26px;
+    }
+    .purple-spot {
+        background-color: purple;
+        left: 122px;
+        top: 313px;
+    }
+    .snap-into-place{
+        background: pink;
+        height: 8em;
+        width: 8em;
+        position: absolute;
+        z-index: 2;
+
+    }
+    .black {
+        position: absolute;
+        left: 700px;
+        z-index: 3;
     }
   </style>
 </head>
@@ -19,7 +71,17 @@
     <img src="ia-logo/ia-logo-dot-blue.png" class="blue" />
     <img src="ia-logo/ia-logo-dot-green.png" class="green" />
     <img src="ia-logo/ia-logo-dot-red.png" class="red" />
-    <img src="ia-logo/ia-logo-back.png" class="logo" />
+
+    <div class="snap-into-place"></div>
+
+    <div class="logo-container">
+        <div class="black-spot circle"></div>
+        <div class="blue-spot circle"></div>
+        <div class="green-spot circle"></div>
+        <div class="red-spot circle"></div>
+        <div class="purple-spot circle"></div>
+        <img src="ia-logo/ia-logo-back.png" class="logo" />
+    </div>
 
 
     <script>
