@@ -39,3 +39,6 @@ Having some trouble understanding and finding resources to explain the sporadic 
 
 Hmmm ... it looks like I forget to update the inital X and Y for a circle in the mouseup event, and that the 
 x and y offsets aren't being updated at all ... 
+
+
+Okay so looks like I forget to set the x and y offsets to the new current position of the circle in the onMouseDown event handler. I'm still not 110% understanding the math/necessity for the 3 variables all together, but putting that in it is more or less working, with the exception of changing between the circles. I'm guessing I'm going to have to store the last offset for each one seperately.

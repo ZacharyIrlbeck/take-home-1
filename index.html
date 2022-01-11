@@ -37,7 +37,7 @@
         var xOffset = 0
         var yOffset = 0
         var activeElement = null
-        
+
         document.addEventListener('mousedown', onMouseDown)
         document.addEventListener('mouseup', onMouseUp)
         document.addEventListener('mousemove', onMouseMove)
@@ -101,12 +101,15 @@
                 // console.log('the initialY', initialY)
                 // console.log('the xOffset', xOffset)
                 // console.log('the yOffset', yOffset)
-                // currentX = e.clientX - initialX
-                // currentY = e.clientY - initialY
+
+                currentX = e.clientX - initialX
+                currentY = e.clientY - initialY
+                xOffset = currentX
+                yOffset = currentY
 
                 // animateCircle(currentX, currentY, activeElement)
 
-                animateCircle(e.clientX, e.clientY, activeElement)
+                animateCircle(currentX, currentY, activeElement)
             }
         }
 
