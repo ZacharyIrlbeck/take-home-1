@@ -8,12 +8,55 @@
         user-scalable=no" />
   <title>Inspiring Apps Challenge</title>
   <style>
-    
+    .black-circle {
+        transform: translate3d(20px, 20px, 0px);
+    }
   </style>
 </head>
 
 <body>
-    <img src="ia-logo/ia-logo-dot-black.png" />
+    <img src="ia-logo/ia-logo-dot-black.png" class="black" />
+    <img src="ia-logo/ia-logo-dot-blue.png" class="blue" />
+    <img src="ia-logo/ia-logo-dot-green.png" class="green" />
+    <img src="ia-logo/ia-logo-dot-red.png" class="red" />
+    <img src="ia-logo/ia-logo-back.png" class="logo" />
+
+
+    <script>
+        
+        var black = document.querySelector(".black")
+        var blue = document.querySelector(".blue")
+        var green = document.querySelector(".green")
+        var red = document.querySelector(".red")
+        var logo = document.querySelector(".logo")
+        
+        var currentX
+        var currentY 
+        var activeElement
+        
+        document.addEventListener('mousedown', onMouseDown)
+        document.addEventListener('mouseup', onMouseUp)
+        document.addEventListener('mousemove', onMouseMove)
+
+        function onMouseDown(){
+            // what happens when I click down? Well, I need to identify if there is an element (if the click was in a moveable element),
+            // and set which element that was.
+        }
+
+        function onMouseUp(){
+            // what happens on mouseup? well, I'm going to first check to see if there is an active element, if not, return. 
+            // if there is an active element, check if that element belongs where it has been dragged to within a reasonable margin
+            // if not, return it to it's intial position.
+        }
+
+        function onMouseMove(){
+            // again, returning if no active element, if there is, make sure that the active element if following the mouse
+        }
+
+        function animateCircle(mouseX, mouseY, elm){
+            elm.style.transform = "translate3d(" + mouseX + "px, " + mouseY + "px, 0)";
+        }
+    </script>
 </body>
 
 </html>
