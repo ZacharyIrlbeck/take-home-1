@@ -31,4 +31,11 @@ As of right now, the unknowns are:
 I added the ability to move the dots, but the follow the mouse at a strange distance. Also, when I try and move them around over the background of hte logo, it works as if clicking the image. This explains the initalX - clientX thing, as well as the e.preventDefault in the move function. 
 
 
-Okay, so far running into the most challenging part, which is understanding the need for the x and y offsets and intial position to make the image track accurately with the mouse.
+Okay, so far running into the most challenging part, which is understanding the need for the x and y offsets and intial position to make the image track accurately with the mouse. 
+
+
+Having some trouble understanding and finding resources to explain the sporadic jumping around off the circles. The work, more or less, if I only use one, so it has something to do with the state not being reset between one circle and the next. It also doesn't track with the mouse like I'd like it to, and I'm presuming that has something to do with using an image file rather than a div made to look like a circle, as in the exmaple. I'm thinking that this all has to do with this one bit that I'm not understanding. I'm going to console.log the variables that control the position and watch how they change depending on what I do. I notice that the xOffset and yOffset stay 0 - I suspect that it's meant to change, and for some reason it's not. I stuck the console.log for all the variable in the onMouseMove, but I also suspect that is more or less functioning how it should be at this point. Instead I'm going to stick it in the onMouseDown event because I'm seeing the error not while dragging it as much as on the intial click. After this I'll go ahead and stick it on the onMouseUp event to see what isn't being reset while changing between the different circles, as I'm imaging that some of the jumping aronnd is owed to the second circle using an offset that belongs actually to the first circle. Also, while browsing the web, I found out about the html attribute "draggable", and the related set of events available to be used. After figuring this out, I'm going to investigate if one solution is better than the other, and the differences between the two. 
+
+
+Hmmm ... it looks like I forget to update the inital X and Y for a circle in the mouseup event, and that the 
+x and y offsets aren't being updated at all ... 

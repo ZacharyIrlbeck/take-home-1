@@ -69,6 +69,18 @@
     container.addEventListener("mousemove", drag, false);
 
     function dragStart(e) {
+        console.log('on mouse down =======================')
+            console.log('the e.clientX', e.clientX)
+            console.log('the e.clientY', e.clientY)
+            console.log('the initialX', initialX)
+            console.log('the initialY', initialY)
+            console.log('the xOffset', xOffset)
+            console.log('the yOffset', yOffset)
+            console.log('=======================')
+
+
+
+
       if (e.type === "touchstart") {
         initialX = e.touches[0].clientX - xOffset;
         initialY = e.touches[0].clientY - yOffset;

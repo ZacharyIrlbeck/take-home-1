@@ -43,6 +43,16 @@
         document.addEventListener('mousemove', onMouseMove)
 
         function onMouseDown(e){
+            console.log('on mouse down =======================')
+            console.log('the e.clientX', e.clientX)
+            console.log('the e.clientY', e.clientY)
+            console.log('the initialX', initialX)
+            console.log('the initialY', initialY)
+            console.log('the xOffset', xOffset)
+            console.log('the yOffset', yOffset)
+            console.log('=======================')
+
+
             if(e.target === black){
                 activeElement = black 
             }else if(e.target === blue){
@@ -59,8 +69,23 @@
             initialY = e.clientY - yOffset
         }
 
-        function onMouseUp(){
+        function onMouseUp(e){
+            // this is going to need to be modified to handle multiple circles
+            // initialX = currentX
+            // initialY = currentY
             activeElement = null
+
+            console.log('on mouse up =======================')
+            console.log('the e.clientX', e.clientX)
+            console.log('the e.clientY', e.clientY)
+            console.log('the initialX', initialX)
+            console.log('the initialY', initialY)
+            console.log('the xOffset', xOffset)
+            console.log('the yOffset', yOffset)
+            console.log('=======================')
+
+
+
             // what happens on mouseup? well, I'm going to first check to see if there is an active element, if not, return. 
             // if there is an active element, check if that element belongs where it has been dragged to within a reasonable margin
             // if not, return it to it's intial position.
