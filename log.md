@@ -68,6 +68,11 @@ Okay, so let's see. Presumably the reason I'd been given the images is so that I
 replace them with divs. However, I do need the invisble divs to give it somewhere to "snap into place too". So, next step is that they snap into place. Later, I'll add some logic around that snapping into place - i.e, no two dots should snap into place, and, later, checking that they are all the right color, etc. 
 
 
+                            A Fresh Start
 
+All right, I was having a hard time implementing this the way that I was going about it. I decided to dig a little bit deeper into the droppable API, and am having a much easier time with it. I decided to restart with index2.
 
-All right, I was having a hard time implementing this the way that I was going about it. I decided to dig a little bit deeper into the droppable API, and am having a much easier time with it. 
+So, I can drag and drop the dots into the image, it needs a little polish but more or less there. Back to it!
+
+Okay, so then, onto the next requirement - if it's the wrong color.
+

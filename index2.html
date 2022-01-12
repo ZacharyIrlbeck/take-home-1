@@ -47,11 +47,11 @@
     </head>
     <body>
         <div class="logo-back-container">
-            <div class="dot-container black-container"></div>
-            <div class="dot-container black-container-2"></div>
-            <div class="dot-container blue-container"></div>
-            <div class="dot-container green-container"></div>
-            <div class="dot-container red-container"></div>
+            <div id="black-container" class="dot-container black-container"></div>
+            <div id="black-container-2" class="dot-container black-container-2"></div>
+            <div id="blue-container" class="dot-container blue-container"></div>
+            <div id="green-container" class="dot-container green-container"></div>
+            <div id="red-container" class="dot-container red-container"></div>
         </div>
         
         <img src="ia-logo/ia-logo-dot-black.png" draggable="true" class="dot" id="black-dot-1" />
@@ -77,39 +77,18 @@
 
             function handleDrop(e){
                 const dotToAppend = document.getElementById(currentDotId)
-                e.target.appendChild(dotToAppend)
+
+                const containerColor = e.target.id.split("-")[0]
+                const dotColor = currentDotId.split("-")[0]
+
+                if(dotColor === containerColor){
+                    e.target.appendChild(dotToAppend)
+                }
             }
 
             function handleDragStart(e){
                 currentDotId = e.target.id
             }
         </script>
-
-
-<!-- 
-        <script>
-            const bigBox = document.querySelector("#big-box")
-            const smallBox = document.querySelector("#small-box")
-
-            smallBox.addEventListener('dragstart', handleDragStart)
-            bigBox.addEventListener("drop", handleDrop)
-            bigBox.addEventListener("dragover", handleDragOver)
-
-            function handleDragStart(e){
-                console.log('drag start')
-                e.dataTransfer.setData("smallbox", event.target.id)
-            }
-
-            function handleDrop(e){
-                console.log('drop')
-                const smallBoxId = e.dataTransfer.getData("smallbox")
-                const smallBoxElm = document.getElementById(smallBoxId)
-                e.target.appendChild(smallBoxElm)
-            }
-
-            function handleDragOver(e){
-                e.preventDefault()
-            }
-        </script> -->
     </body>
 </html>
