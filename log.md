@@ -42,3 +42,27 @@ x and y offsets aren't being updated at all ...
 
 
 Okay so looks like I forget to set the x and y offsets to the new current position of the circle in the onMouseDown event handler. I'm still not 110% understanding the math/necessity for the 3 variables all together, but putting that in it is more or less working, with the exception of changing between the circles. I'm guessing I'm going to have to store the last offset for each one seperately.
+
+
+
+Okay, dots are now draggable. Remaining steps. 
+
+1. Create containers that allow for things to be snapped/dropped in if it's the correct color. 
+
+
+Okay, so let's see here ... I'm going to want to create this spaces invisbly so that it can snap to, for now adding colors to remember which is which. Postion them over the image where they should snap in. If the .png file is dragged close enough, it'll ... be located to line up with the open postion no? 
+
+
+
+
+• A user should be able to drag a dot from its starting position to the appropriate location in the logo.
+• Dots dropped in the wrong location should be rejected.
+• Two dots cannot occupy the same space.
+• The finished logo should include the dots in the appropriate location within the logo.
+
+• When the logo is properly assembled, congratulate the user.
+• The tool should function in a desktop browser.
+• Implement the tool first by using a separate DOM element for each image.
+
+Okay, so let's see. Presumably the reason I'd been given the images is so that I use those, not just dissapear the dots, and then 
+replace them with divs. However, I do need the invisble divs to give it somewhere to "snap into place too". So, next step is that they snap into place. Later, I'll add some logic around that snapping into place - i.e, no two dots should snap into place, and, later, checking that they are all the right color, etc. 

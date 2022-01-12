@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inspiring Apps Game</title>     
+        
+        <style>
+            .logo-back-container{
+                position: relative;
+                background: url("/ia-logo/ia-logo-back.png");
+                height: 600px;
+                width: 600px;
+                border: none;
+                margin: none;
+            }
+            .dot-container{
+                position: absolute;
+                height: 9em;
+                width: 9em;
+                border: 1px solid red;
+                border-radius: 50%;
+            }
+
+            .black-container{
+                left: 245px;
+                top: 21px;
+            }
+            .black-container-2{
+                right: 28px;
+                top: 40px;
+            }
+            .blue-container{
+                top: 254px;
+                right: 65px;
+            }
+            .green-container{
+                left: 17px;
+                top: 161px;
+            }
+            .red-container{
+                bottom: 150px;
+                left: 114px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="logo-back-container">
+            <div class="dot-container black-container"></div>
+            <div class="dot-container black-container-2"></div>
+            <div class="dot-container blue-container"></div>
+            <div class="dot-container green-container"></div>
+            <div class="dot-container red-container"></div>
+        </div>
+        
+        <img src="ia-logo/ia-logo-dot-black.png" draggable="true" class="dot-black" />
+        <img src="ia-logo/ia-logo-dot-black.png" draggable="true" class="dot-black-2" />
+        <img src="ia-logo/ia-logo-dot-blue.png" draggable="true" class="dot-blue" />
+        <img src="ia-logo/ia-logo-dot-green.png" draggable="true" class="dot-green" />
+        <img src="ia-logo/ia-logo-dot-red.png" draggable="true" class="dot-red" />
+
+        <script>
+            const blackContainer = document.querySelector(".black-container")
+            const blackDot = document.querySelector(".dot-black")
+
+            blackDot.addEventListener("dragstart", handleDragStart)
+
+            blackContainer.addEventListener("drop", handleDrop)
+
+            blackContainer.addEventListener("dragover", handleDragOver)
+
+            function handleDrop(e){
+                console.log('drop firing!')
+            }
+
+            function handleDragStart(){
+                console.log('drag start firing!')
+            }
+
+            function handleDragOver(e){
+                console.log('drag over event firing')
+                e.preventDefault()
+            }
+        </script>
+
+
+<!-- 
+        <script>
+            const bigBox = document.querySelector("#big-box")
+            const smallBox = document.querySelector("#small-box")
+
+            smallBox.addEventListener('dragstart', handleDragStart)
+            bigBox.addEventListener("drop", handleDrop)
+            bigBox.addEventListener("dragover", handleDragOver)
+
+            function handleDragStart(e){
+                console.log('drag start')
+                e.dataTransfer.setData("smallbox", event.target.id)
+            }
+
+            function handleDrop(e){
+                console.log('drop')
+                const smallBoxId = e.dataTransfer.getData("smallbox")
+                const smallBoxElm = document.getElementById(smallBoxId)
+                e.target.appendChild(smallBoxElm)
+            }
+
+            function handleDragOver(e){
+                e.preventDefault()
+            }
+        </script> -->
+    </body>
+</html>
