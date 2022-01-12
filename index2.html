@@ -18,6 +18,9 @@
                 width: 9em;
                 border: 1px solid red;
                 border-radius: 50%;
+                display: flex;
+                align-items: center; 
+                justify-content: center;
             }
 
             .black-container{
@@ -58,6 +61,8 @@
         <img src="ia-logo/ia-logo-dot-red.png" draggable="true" class="dot-red" />
 
         <script>
+            var currentDotId
+
             const blackContainer = document.querySelector(".black-container")
             const blackDot = document.querySelector(".dot-black")
 
@@ -68,11 +73,13 @@
             blackContainer.addEventListener("dragover", handleDragOver)
 
             function handleDrop(e){
-                console.log('drop firing!')
+                const dotToAppend = document.querySelector(".dot-black")
+                e.target.appendChild(dotToAppend)
             }
 
-            function handleDragStart(){
+            function handleDragStart(e){
                 console.log('drag start firing!')
+                currentDotId = e.target.id
             }
 
             function handleDragOver(e){
