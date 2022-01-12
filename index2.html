@@ -70,7 +70,6 @@
             }
 
             function handleDrop(e){
-
                 if(!e.target.classList.contains("dot-container"))
                     return
 
@@ -83,8 +82,9 @@
 
                 if(dotColor === containerColor){
                     e.target.appendChild(dotToAppend)
-                    // mark the appropriate color as "done"
-                    // also check if this particular div is a container div, and if so, if it has a child element. 
+                    if(dotsCont.childElementCount === 0){
+                        congrats()
+                    }
                 }
             }
 
@@ -108,7 +108,7 @@
                     return {
                         elm: document.createElement("img"),
                         name: dotName,
-                        inContainer: false
+                        placed: false
                     }
                 })
 
@@ -176,6 +176,12 @@
 
                 reset()
             })
+
+            function congrats(){
+                setTimeout(function(){
+                    window.alert("Well done!")
+                }, 200)
+            }
         </script>
     </body>
 </html>
