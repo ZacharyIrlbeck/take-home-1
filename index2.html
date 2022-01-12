@@ -48,6 +48,7 @@
     </head>
     <body>
         <div id="dots"></div>
+        <button id="reset-button">Reset</button>
 
         <div class="logo-back-container">
             <div id="black-container" class="dot-container black-container"></div>
@@ -60,14 +61,8 @@
         
         <script>
             let currentDotId
-            const containersWithDots = []
 
             const dotContainers = document.querySelectorAll(".dot-container")
-            const dots = document.querySelectorAll(".dot")
-
-            for(let i = 0; i < dots.length; i++){
-                dots[i].addEventListener("dragstart", handleDragStart)
-            }
 
             for(let i = 0; i < dotContainers.length; i++){
                 dotContainers[i].addEventListener("dragover", function(e){ e.preventDefault() })
@@ -82,8 +77,7 @@
                 
                 if(dotColor === containerColor){
                     e.target.appendChild(dotToAppend)
-                    containersWithDots.push(e.target.id)
-                    console.log('the containerswithDots', containersWithDots)
+                    // mark the appropriate color as "done"
                 }
             }
 
@@ -133,13 +127,16 @@
                     dotElm.elm.setAttribute("draggable", "true")
                     dotElm.elm.classList.add("dot")
                 })
-
-                const dotsCont = document.getElementById("dots")
                 
                 // then go ahead (later extract this out to methods), and add to the new div where the buttons are stored and .. violá!
                 dotElements.forEach((dotElm) => {
                     dotsCont.appendChild(dotElm.elm)
                 })
+
+                dotElements.forEach((dotElm) => {
+                    dotElm.elm.addEventListener("dragstart", handleDragStart)
+                })
+
             }
 
             document.addEventListener("DOMContentLoaded", function(){ 
@@ -149,8 +146,29 @@
             // okay, next order of business ... go ahead and do the reset button. This is a function that wil
 
             function reset(){
+                dotContainers.forEach((dotContainer) => {
+                    if(dotContainer.firstChild)
+                        dotContainer.removeChild(dotContainer.firstChild)
+                })
 
+                removeDotsFromPage()
+                addDotsToPage()
             }
+
+            function removeDotsFromPage(){
+                while(dotsCont.firstChild){
+                    dotsCont.removeChild(dotsCont.firstChild)
+                }
+            }
+
+            const resetButton = document.getElementById("reset-button")
+            const dotsCont = document.getElementById("dots")
+
+            resetButton.addEventListener("click", function(e){
+                e.preventDefault()
+
+                reset()
+            })
         </script>
     </body>
 </html>
