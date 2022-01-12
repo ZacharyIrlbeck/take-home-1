@@ -54,37 +54,34 @@
             <div class="dot-container red-container"></div>
         </div>
         
-        <img src="ia-logo/ia-logo-dot-black.png" draggable="true" class="dot-black" />
-        <img src="ia-logo/ia-logo-dot-black.png" draggable="true" class="dot-black-2" />
-        <img src="ia-logo/ia-logo-dot-blue.png" draggable="true" class="dot-blue" />
-        <img src="ia-logo/ia-logo-dot-green.png" draggable="true" class="dot-green" />
-        <img src="ia-logo/ia-logo-dot-red.png" draggable="true" class="dot-red" />
+        <img src="ia-logo/ia-logo-dot-black.png" draggable="true" class="dot" id="black-dot-1" />
+        <img src="ia-logo/ia-logo-dot-black.png" draggable="true" class="dot" id="black-dot-2" />
+        <img src="ia-logo/ia-logo-dot-blue.png" draggable="true" class="dot" id="blue-dot" />
+        <img src="ia-logo/ia-logo-dot-green.png" draggable="true" class="dot" id="green-dot" />
+        <img src="ia-logo/ia-logo-dot-red.png" draggable="true" class="dot" id="red-dot" />
 
         <script>
             var currentDotId
 
-            const blackContainer = document.querySelector(".black-container")
-            const blackDot = document.querySelector(".dot-black")
+            const dotContainers = document.querySelectorAll(".dot-container")
+            const dots = document.querySelectorAll(".dot")
 
-            blackDot.addEventListener("dragstart", handleDragStart)
+            for(let i = 0; i < dots.length; i++){
+                dots[i].addEventListener("dragstart", handleDragStart)
+            }
 
-            blackContainer.addEventListener("drop", handleDrop)
-
-            blackContainer.addEventListener("dragover", handleDragOver)
+            for(let i = 0; i < dotContainers.length; i++){
+                dotContainers[i].addEventListener("dragover", function(e){ e.preventDefault() })
+                dotContainers[i].addEventListener("drop", handleDrop)
+            }
 
             function handleDrop(e){
-                const dotToAppend = document.querySelector(".dot-black")
+                const dotToAppend = document.getElementById(currentDotId)
                 e.target.appendChild(dotToAppend)
             }
 
             function handleDragStart(e){
-                console.log('drag start firing!')
                 currentDotId = e.target.id
-            }
-
-            function handleDragOver(e){
-                console.log('drag over event firing')
-                e.preventDefault()
             }
         </script>
 
