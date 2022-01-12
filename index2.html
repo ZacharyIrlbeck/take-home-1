@@ -47,6 +47,8 @@
         </style>
     </head>
     <body>
+        <div id="dots"></div>
+
         <div class="logo-back-container">
             <div id="black-container" class="dot-container black-container"></div>
             <div id="black-container-2" class="dot-container black-container-2"></div>
@@ -55,16 +57,7 @@
             <div id="red-container" class="dot-container red-container"></div>
         </div>
 
-        <!-- stick these guys in a div so I can re-generate them -->
-
-        <div id="dots"></div>
         
-        <!-- <img src="ia-logo/ia-logo-dot-black.png" draggable="true" class="dot" id="black-dot-1" />
-        <img src="ia-logo/ia-logo-dot-black.png" draggable="true" class="dot" id="black-dot-2" />
-        <img src="ia-logo/ia-logo-dot-blue.png" draggable="true" class="dot" id="blue-dot" />
-        <img src="ia-logo/ia-logo-dot-green.png" draggable="true" class="dot" id="green-dot" />
-        <img src="ia-logo/ia-logo-dot-red.png" draggable="true" class="dot" id="red-dot" /> -->
-
         <script>
             let currentDotId
             const containersWithDots = []
@@ -82,7 +75,6 @@
             }
 
             function handleDrop(e){
-                console.log('containers with dots', containersWithDots)
                 const dotToAppend = document.getElementById(currentDotId)
                 
                 const containerColor = e.target.id.split("-")[0]
@@ -119,8 +111,6 @@
                     }
                 })
 
-                console.log('the dotElements', dotElements)
-
                 dotElements.forEach((dotElm) => {
                     if(dotElm.name === "black1"){
                         dotElm.elm.setAttribute("src", imageUrls["black"])
@@ -155,6 +145,12 @@
             document.addEventListener("DOMContentLoaded", function(){ 
                 addDotsToPage()
             })
+
+            // okay, next order of business ... go ahead and do the reset button. This is a function that wil
+
+            function reset(){
+
+            }
         </script>
     </body>
 </html>
