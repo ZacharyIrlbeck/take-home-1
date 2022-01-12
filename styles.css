@@ -47,7 +47,7 @@
 }
 
 #dots {
-    width: 96%;
+    width: 600px;
     height: 90px;
     display: flex;
     justify-content: space-around;
