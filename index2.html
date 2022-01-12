@@ -70,14 +70,21 @@
             }
 
             function handleDrop(e){
+
+                if(!e.target.classList.contains("dot-container"))
+                    return
+
+                if(e.target.firstChild)
+                    return
+
                 const dotToAppend = document.getElementById(currentDotId)
-                
                 const containerColor = e.target.id.split("-")[0]
-                const dotColor = currentDotId.split("-")[0]
-                
+                const dotColor = currentDotId.split("-")[0]                
+
                 if(dotColor === containerColor){
                     e.target.appendChild(dotToAppend)
                     // mark the appropriate color as "done"
+                    // also check if this particular div is a container div, and if so, if it has a child element. 
                 }
             }
 
