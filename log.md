@@ -149,3 +149,8 @@ Alright, clean up
 2. Goes through the javascript, group variable and function declarations, double-check the code, making sure everything makes sense and it's not unecessarily complicated anywhere. 
 
 3. Add a little summary of my approach and how it went apart from this long, the logs a bit rambly ...
+
+
+Ah, also need to tighten up the css a teensy bit. 
+
+div shouldn't close when there are no dots, the reset button is terrible, etc. add a page container and center the entire thing
