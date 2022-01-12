@@ -7,6 +7,9 @@ https://www.kirupa.com/html5/animating_movement_smoothly_using_css.htm
 https://www.kirupa.com/html5/all_about_css_animations.htm
 
 
+https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API  <--- The real MVP
+
+
 Okay, I think I see what they're saying about the ClientX/Y on the event object given the absolute position, and using the inital position and offset to create a better drag .... going to play with it a bit to solidify this understanding. 
 
 So, then clearly stated, the problem is first one of CSS animation. The first step and easiest variation of the problem that I could solve would be creating a draggable DOM element, then going from there. 
@@ -137,3 +140,12 @@ Okay, let's see ...
 
 So, realized last night that I don't know that this will solve the requirement for the drop event. If, for example, black1 is marked as dropped, and black 2 isn't, that still doesn't tell me if the current container already has a child node that would be one of the dots. I'm thinking the approach that makes the most sense, is perhaps adding a check that the e.target that the dot is being appended to is in fact one of the container divs, rather than an img div. That in and of itself should do it I would think, however, if not, then checking the number of child nodes on the container div ... I guess better that way to be extra explicit. 
 
+
+
+Alright, clean up 
+
+1. Break the CSS and JS out into seperate files. Delete index.html, (it's in the githistory, this was my first attemp trying to implement what the draggable API does in JS), and change index2.html to index.html. 
+
+2. Goes through the javascript, group variable and function declarations, double-check the code, making sure everything makes sense and it's not unecessarily complicated anywhere. 
+
+3. Add a little summary of my approach and how it went apart from this long, the logs a bit rambly ...
